@@ -1,5 +1,5 @@
 import { Vector3 } from 'three';
-import { cameraId, playerId } from './constants';
+import { cameraId, playerId } from '../constants';
 
 export const motionControl = () => {
     const axisY = new Vector3(0, 1, 0);

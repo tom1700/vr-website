@@ -1,4 +1,4 @@
-import { playerId } from './constants';
+import { playerId } from '../constants';
 
 export const rotationControl = () => {
     const rotationSpeed = 0.1;

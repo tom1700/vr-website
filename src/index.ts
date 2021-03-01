@@ -1,10 +1,14 @@
-import { scene as sceneEntity } from './features/scene/scene.entity';
-import { motionControl } from './features/player/motion-control.component';
-import { rotationControl } from './features/player/rotation-control.component';
+import { sceneEntity } from './features/entities/scene';
+import { motionControl } from './features/components/motion-control';
+import { rotationControl } from './features/components/rotation-control';
+import { dynamicColor} from './features/components/dynamic-color';
+import { colorPicker } from './features/components/color-picker'
 
 const registerComponents = () => [
     motionControl,
     rotationControl,
+    dynamicColor,
+    colorPicker
 ].forEach(component => component());
 
 registerComponents();
@@ -12,5 +16,5 @@ registerComponents();
 window.addEventListener('DOMContentLoaded', () => {
     const rootElement = document.getElementById('root');
 
-    rootElement.append(sceneEntity());
+    rootElement.innerHTML = sceneEntity();
 })
