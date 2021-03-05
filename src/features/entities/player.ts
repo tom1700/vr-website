@@ -21,6 +21,7 @@ export const playerEntity = ({ initialPosition }: PlayerProps) => `
     ></a-entity>
     <a-camera
         id="${cameraId}"
+        look-controls="pointerLockEnabled: true"
     >
         <a-cursor></a-cursor>
     </a-camera>

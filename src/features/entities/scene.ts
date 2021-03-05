@@ -1,7 +1,6 @@
 import { roomEntity } from '@features/entities/room';
 import { playerEntity } from '@features/entities/player';
 import { Vector3 } from 'three';
-import { menuEntity } from './menu';
 
 export const sceneEntity = () => `
 <a-scene

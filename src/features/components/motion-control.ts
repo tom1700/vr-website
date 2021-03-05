@@ -20,7 +20,7 @@ export const motionControl = () => {
             movement.applyAxisAngle(axisY, this.playerElement.object3D.rotation.y);
             movement.applyAxisAngle(axisY, this.cameraElement.object3D.rotation.y);
             this.playerElement.object3D.position.x += movement.x * movementSpeed;
-            this.playerElement.object3D.position.y += movement.y * movementSpeed;
+            this.playerElement.object3D.position.y += movement.z * movementSpeed;
         },
     });
 }
