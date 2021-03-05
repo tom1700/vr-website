@@ -21,14 +21,14 @@ export const colorPicker = () => {
                 0,
                 -1.1
             );
-            const camera = document.getElementById(cameraId);
             // @ts-ignore
-            newPosition.applyAxisAngle(axisY, camera.object3D.rotation.y);
+            const cameraObject3D = document.getElementById(cameraId).object3D;
+            newPosition.applyAxisAngle(axisY, cameraObject3D.rotation.y);
             console.log(newPosition)
-            this.el.object3D.position.x = newPosition.x;
-            this.el.object3D.position.z = newPosition.z;
+            this.el.object3D.position.x = cameraObject3D.position.x + newPosition.x;
+            this.el.object3D.position.z = cameraObject3D.position.z + newPosition.z;
             // @ts-ignore
-            this.el.object3D.rotation.y = camera.object3D.rotation.y
+            this.el.object3D.rotation.y = cameraObject3D.rotation.y
         },
 
         showScreen() {
@@ -42,23 +42,24 @@ export const colorPicker = () => {
                 'dynamic-color-element-clicked',
                 ({ detail: { element }}: { detail: { element: HTMLElement }
             }) => {
-                if (this.activeElement === element) {
-                    this.activeElement = null;
-                    this.hideScreen();
+                this.activeElement = element;
+                if (!this.isVisible) {
+                    this.showScreen();
                 } else {
-                    this.activeElement = element;
-                    if (!this.isVisible) {
-                        this.showScreen();
-                    } else {
-                        this.adjustPosition();
-                    }
+                    this.adjustPosition();
                 }
             })
 
             this.el.addEventListener('click', (ev: any) => {
-                const color = ev.target.getAttribute('color');
-                if (this.activeElement) {
-                    this.activeElement.setAttribute('color', color)
+                const element = ev.target;
+
+                if (element.id === 'close-menu') {
+                    this.hideScreen();                    
+                } else {
+                    const color = ev.target.getAttribute('color');
+                    if (this.activeElement) {
+                        this.activeElement.setAttribute('color', color)
+                    }
                 }
             })
         }

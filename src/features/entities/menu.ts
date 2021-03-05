@@ -49,6 +49,12 @@ export const menuScreen = () => `
         color="#FFFF00"
         position="-0.115 0.115 0.02"
     >
+    <a-circle
+        color="#333"
+        radius="0.04"
+        position="0.35 0.12 0.02"
+        id="close-menu"
+    ></a-circle>
     </a-plane>
 </a-plane>
 `
