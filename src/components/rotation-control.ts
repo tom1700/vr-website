@@ -1,9 +1,10 @@
-import { playerId } from '../constants';
+import { registerComponent } from 'aframe';
+import { playerId } from '../entities/constants';
 
 export const rotationControl = () => {
     const rotationSpeed = 0.1;
 
-    AFRAME.registerComponent('thumbstick-rotation-control', {
+    registerComponent('thumbstick-rotation-control', {
         init() {
             this.el.addEventListener('thumbstickmoved', (event: any) => this.updatePlayer(event));
             this.playerElement = document.getElementById(playerId);

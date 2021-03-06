@@ -1,6 +1,7 @@
-import { playerId, cameraId } from '@features/constants';
+
 import { Vector3 } from 'three';
-import { menuEntity } from './menu';
+import { colorMenuEntity } from './color-menu';
+import { cameraId, playerId } from './constants';
 
 type PlayerProps = {
     initialPosition: Vector3
@@ -25,7 +26,7 @@ export const playerEntity = ({ initialPosition }: PlayerProps) => `
     >
         <a-cursor></a-cursor>
     </a-camera>
-    ${menuEntity({
+    ${colorMenuEntity({
         initialPosition: new Vector3(0, 0, 0)
     })}
 </a-entity>

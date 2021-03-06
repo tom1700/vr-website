@@ -4,7 +4,7 @@ type MenuProps = {
     initialPosition: Vector3,
 };
 
-export const menuEntity = ({
+export const colorMenuEntity = ({
     initialPosition,
 }: MenuProps) => `
 <a-entity
@@ -15,7 +15,7 @@ export const menuEntity = ({
 </a-entity>
 `
 
-export const menuScreen = () => `
+export const colorMenuScreen = () => `
 <a-plane
     height="0.5"
     width="0.5"

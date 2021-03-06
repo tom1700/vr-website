@@ -22,9 +22,9 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js'],
         alias: {
-            "@utils": path.resolve(__dirname, 'src/utils/'),
-            "@features": path.resolve(__dirname, 'src/features/'),
-        }
+            entities: path.resolve(__dirname, 'src/entities'),
+            components: path.resolve(__dirname, 'src/components'),
+        },
     },
     output: {
         filename: 'index.bundle.js',

@@ -1,11 +1,12 @@
+import { cameraId, playerId } from 'entities/constants';
+import { registerComponent } from 'aframe';
 import { Vector3 } from 'three';
-import { cameraId, playerId } from '../constants';
 
 export const motionControl = () => {
     const axisY = new Vector3(0, 1, 0);
     const movementSpeed = 0.25;
 
-    AFRAME.registerComponent('thumbstick-motion-control', {
+    registerComponent('thumbstick-motion-control', {
         init() {
             this.el.addEventListener('thumbstickmoved', (event: any) => this.updatePlayer(event));
             this.playerElement = document.getElementById(playerId);

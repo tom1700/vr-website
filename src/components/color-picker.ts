@@ -1,11 +1,13 @@
-import { cameraId } from "@features/constants";
-import { menuScreen } from "@features/entities/menu";
+
+import { registerComponent } from "aframe";
+import { colorMenuScreen } from "entities/color-menu";
+import { cameraId } from "entities/constants";
 import { Vector3 } from "three";
 
 export const colorPicker = () => {
     const axisY = new Vector3(0, 1, 0);
 
-    AFRAME.registerComponent('color-picker', {
+    registerComponent('color-picker', {
         isVisible: false,
         
         activeElement: null,
@@ -32,7 +34,7 @@ export const colorPicker = () => {
 
         showScreen() {
             this.adjustPosition();
-            this.el.innerHTML = menuScreen();
+            this.el.innerHTML = colorMenuScreen();
             this.isVisible = true;
         },
 
