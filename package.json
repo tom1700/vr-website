@@ -27,6 +27,7 @@
     "vr"
   ],
   "dependencies": {
+    "file-loader": "^6.2.0",
     "three": "^0.126.1"
   }
 }

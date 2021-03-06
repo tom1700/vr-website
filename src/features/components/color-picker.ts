@@ -24,7 +24,6 @@ export const colorPicker = () => {
             // @ts-ignore
             const cameraObject3D = document.getElementById(cameraId).object3D;
             newPosition.applyAxisAngle(axisY, cameraObject3D.rotation.y);
-            console.log(newPosition)
             this.el.object3D.position.x = cameraObject3D.position.x + newPosition.x;
             this.el.object3D.position.z = cameraObject3D.position.z + newPosition.z;
             // @ts-ignore

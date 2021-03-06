@@ -16,9 +16,9 @@ export const roomEntity = ({
         height="${initialSize.z}"
         width="${initialSize.x}"
         rotation="-90 0 0"
-        color="#FFF"
         position="0 0 0"
-        dynamic-color
+        repeat="${initialSize.z / 2} ${initialSize.z / 2}"
+        src="#floor-texture"
     ></a-plane>
     <a-plane
         height="${initialSize.z}"
@@ -26,7 +26,6 @@ export const roomEntity = ({
         rotation="90 0 0"
         color="#FFF"
         position="0 ${initialSize.y} 0"
-        dynamic-color
     ></a-plane>
     <a-plane
         height="${initialSize.y}"

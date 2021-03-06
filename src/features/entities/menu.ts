@@ -142,6 +142,7 @@ export const menuScreen = () => `
         radius="0.04"
         position="0.24 0.24 0.02"
         id="close-menu"
+        src="#cancel-texture"
     ></a-circle>
 </a-plane>
 `
