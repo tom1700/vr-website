@@ -1,8 +1,9 @@
 
-import { registerComponent } from "aframe";
-import { colorMenuScreen } from "entities/color-menu";
-import { cameraId } from "entities/constants";
-import { Vector3 } from "three";
+import { registerComponent, THREE } from "aframe";
+// import { colorMenuScreen } from "entities/color-menu";
+import * as config from "config";
+
+const { Vector3 } = THREE;
 
 export const colorPicker = () => {
     const axisY = new Vector3(0, 1, 0);
@@ -13,8 +14,11 @@ export const colorPicker = () => {
         activeElement: null,
 
         hideScreen() {
-            this.el.innerHTML = "";
+            this.el.setAttribute('visible', false);
             this.isVisible = false;
+            this.el.querySelectorAll('[data-color-option]').forEach((colorOption: HTMLElement) => {
+                colorOption.removeAttribute('data-raycastable')
+            })
         },
 
         adjustPosition() {
@@ -24,7 +28,7 @@ export const colorPicker = () => {
                 -1.1
             );
             // @ts-ignore
-            const cameraObject3D = document.getElementById(cameraId).object3D;
+            const cameraObject3D = document.getElementById(config.ids.camera).object3D;
             newPosition.applyAxisAngle(axisY, cameraObject3D.rotation.y);
             this.el.object3D.position.x = cameraObject3D.position.x + newPosition.x;
             this.el.object3D.position.z = cameraObject3D.position.z + newPosition.z;
@@ -34,11 +38,15 @@ export const colorPicker = () => {
 
         showScreen() {
             this.adjustPosition();
-            this.el.innerHTML = colorMenuScreen();
+            this.el.setAttribute('visible', true);
+            this.el.querySelectorAll('[data-color-option]').forEach((colorOption: HTMLElement) => {
+                colorOption.setAttribute('data-raycastable', '')
+            })
             this.isVisible = true;
         },
 
         init() {
+            this.el.setAttribute('visible', false);
             this.el.sceneEl.addEventListener(
                 'dynamic-color-element-clicked',
                 ({ detail: { element }}: { detail: { element: HTMLElement }
@@ -56,7 +64,7 @@ export const colorPicker = () => {
 
                 if (element.id === 'close-menu') {
                     this.hideScreen();                    
-                } else {
+                } else if (element.hasAttribute('data-color-option')){
                     const color = ev.target.getAttribute('color');
                     if (this.activeElement) {
                         this.activeElement.setAttribute('color', color)

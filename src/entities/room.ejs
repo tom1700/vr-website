@@ -1,0 +1,55 @@
+<a-entity
+    id="room"
+    position="0 0 0"
+>
+    <a-plane
+        height="<%- roomSize.z -%>"
+        width="<%- roomSize.x -%>"
+        rotation="-90 0 0"
+        position="0 0 0"
+        repeat="<%- roomSize.z / 2 -%> <%- roomSize.z / 2 -%>"
+        src="#<%- ids.floorTexture -%>"
+    ></a-plane>
+    <a-plane
+        height="<%- roomSize.z -%>"
+        width="<%- roomSize.x -%>"
+        rotation="90 0 0"
+        color="#FFF"
+        position="0 <%- roomSize.y -%> 0"
+    ></a-plane>
+    <a-plane
+        height="<%- roomSize.y -%>"
+        width="<%- roomSize.x -%>"
+        color="#AAA"
+        position="0 <%- roomSize.y / 2 -%>  <%- -roomSize.z / 2 -%> "
+        dynamic-color
+        data-raycastable
+    ></a-plane>
+    <a-plane
+        height="<%- roomSize.y -%>"
+        width="<%- roomSize.x -%>"
+        rotation="0 180 0"
+        color="#AAA"
+        position="0 <%- roomSize.y / 2 -%>  <%- roomSize.z / 2 -%> "
+        dynamic-color
+        data-raycastable
+    ></a-plane>
+    <a-plane
+        height="<%- roomSize.y -%>"
+        width="<%- roomSize.z -%>"
+        rotation="0 90 0"
+        color="#AAA"
+        position="<%- -roomSize.x / 2 -%>  <%- roomSize.y / 2 -%>  0"
+        dynamic-color
+        data-raycastable
+    ></a-plane>
+    <a-plane
+        height="<%- roomSize.y -%>"
+        width="<%- roomSize.z -%>"
+        rotation="0 -90 0"
+        color="#AAA"
+        position="<%- roomSize.x / 2 -%>  <%- roomSize.y / 2 -%>  0"
+        dynamic-color
+        data-raycastable
+    ></a-plane>
+</a-entity>

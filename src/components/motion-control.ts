@@ -1,6 +1,7 @@
-import { cameraId, playerId } from 'entities/constants';
-import { registerComponent } from 'aframe';
-import { Vector3 } from 'three';
+import * as config from "config";
+import { registerComponent, THREE } from 'aframe';
+
+const { Vector3 } = THREE;
 
 export const motionControl = () => {
     const axisY = new Vector3(0, 1, 0);
@@ -9,8 +10,8 @@ export const motionControl = () => {
     registerComponent('thumbstick-motion-control', {
         init() {
             this.el.addEventListener('thumbstickmoved', (event: any) => this.updatePlayer(event));
-            this.playerElement = document.getElementById(playerId);
-            this.cameraElement = document.getElementById(cameraId);
+            this.playerElement = document.getElementById(config.ids.player);
+            this.cameraElement = document.getElementById(config.ids.camera);
         },
         updatePlayer(event: any) {
             const movement = new Vector3(

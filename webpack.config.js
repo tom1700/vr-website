@@ -1,8 +1,19 @@
-const path = require('path');
+const path = require("path");
+const config = require('./src/config');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackInjector = require('html-webpack-injector');
+
+global.__webpack_base_uri__ = '';
 
 module.exports = {
-    entry: './src/index.ts',
+    entry: {
+        index_head: './src/index.ts'
+    },
     devtool: 'inline-source-map',
+    devServer: {
+        publicPath: '/',
+        contentBase: path.join(__dirname, 'dist'),
+    },
     module: {
         rules: [
             {
@@ -16,6 +27,13 @@ module.exports = {
                 options: {
                   name: '/public/icons/[name].[ext]'
                 }
+            },
+            {
+                test: /\.ejs$/,
+                loader: 'ejs-webpack-loader',
+                options: {
+                    data: config
+                }
             }
         ],
     },
@@ -24,10 +42,18 @@ module.exports = {
         alias: {
             entities: path.resolve(__dirname, 'src/entities'),
             components: path.resolve(__dirname, 'src/components'),
+            config: path.resolve(__dirname, 'src/config.js'),
         },
     },
     output: {
-        filename: 'index.bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            chunks: ["index_head"],
+            scriptLoading: 'blocking'
+        }),
+        new HtmlWebpackInjector()
+    ]
 };

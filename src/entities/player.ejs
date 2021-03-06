@@ -1,0 +1,20 @@
+<a-entity
+    id="<%- ids.player -%>"
+    position="0 0 0"
+>
+    <a-entity
+        oculus-touch-controls="hand: right"
+        thumbstick-motion-control=""
+    ></a-entity>
+    <a-entity
+        oculus-touch-controls="hand: right"
+        thumbstick-rotation-control=""
+    ></a-entity>
+    <a-camera
+        id="<%- ids.camera -%>"
+        look-controls="pointerLockEnabled: true"
+    >
+        <a-cursor raycaster="objects: [data-raycastable]"></a-cursor>
+    </a-camera>
+    <%- include color-menu %>
+</a-entity>

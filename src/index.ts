@@ -1,4 +1,3 @@
-import { sceneEntity } from './entities/scene';
 import { motionControl } from './components/motion-control';
 import { rotationControl } from './components/rotation-control';
 import { dynamicColor} from './components/dynamic-color';
@@ -12,9 +11,3 @@ const registerComponents = () => [
 ].forEach(component => component());
 
 registerComponents();
-
-window.addEventListener('DOMContentLoaded', () => {
-    const rootElement = document.getElementById('root');
-
-    rootElement.innerHTML = sceneEntity();
-})
