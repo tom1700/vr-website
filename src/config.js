@@ -8,6 +8,12 @@ module.exports = {
         player: 'player',
         camera: 'camera',
         floorTexture: 'floor-texture',
-        cancelIconTexture: 'cancel-icon-texture'
+        cancelIconTexture: 'cancel-icon-texture',
+        doorsObject: 'doors-object',
+        doorsMaterial: 'doors-material',
+        windowObject: 'window-object',
+        windowMaterial: 'window-material',
+        lampObject: 'lamp-object',
+        lampMaterial: 'lamp-material'
     }
 }

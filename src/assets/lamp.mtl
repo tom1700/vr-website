@@ -1,0 +1,56 @@
+# 3ds Max Wavefront OBJ Exporter v0.94b - (c)2007 guruware
+# File Created: 13.05.2020 14:28:40
+
+newmtl white_st
+	Ns 70.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.9804 0.9412 0.9529
+	Ks 0.6300 0.6300 0.6300
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lig_grey.jpg
+	map_Kd lig_grey.jpg
+
+newmtl st_gold
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.9451 0.7725 0.4078
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka metalyel.jpg
+	map_Kd metalyel.jpg
+
+newmtl Mat_win
+	Ns 58.0000
+	Ni 1.5000
+	d 0.6600
+	Tr 0.6600
+	Tf 0.6600 0.6600 0.6600 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.9216 0.9176 0.9137
+	Ks 0.6630 0.6630 0.6630
+	Ke 0.0000 0.0000 0.0000
+
+newmtl yellow_light
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.9216 0.5725 0.2627
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Gradient.jpg
+	map_Kd Gradient.jpg
