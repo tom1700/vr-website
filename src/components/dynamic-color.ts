@@ -8,6 +8,6 @@ export const dynamicColor = () => {
                     element: this.el
                 });
             })
-        }
+        },
     });
 }

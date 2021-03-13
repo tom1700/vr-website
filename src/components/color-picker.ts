@@ -10,7 +10,7 @@ export const colorPicker = () => {
 
     registerComponent('color-picker', {
         isVisible: false,
-        
+
         activeElement: null,
 
         hideScreen() {
@@ -49,25 +49,25 @@ export const colorPicker = () => {
             this.el.setAttribute('visible', false);
             this.el.sceneEl.addEventListener(
                 'dynamic-color-element-clicked',
-                ({ detail: { element }}: { detail: { element: HTMLElement }
-            }) => {
-                this.activeElement = element;
-                if (!this.isVisible) {
-                    this.showScreen();
-                } else {
-                    this.adjustPosition();
-                }
-            })
+                ({ detail: { element } }: {
+                    detail: { element: HTMLElement }
+                }) => {
+                    this.activeElement = element;
+                    if (!this.isVisible) {
+                        this.showScreen();
+                    } else {
+                        this.adjustPosition();
+                    }
+                })
 
             this.el.addEventListener('click', (ev: any) => {
                 const element = ev.target;
-
                 if (element.id === 'close-menu') {
-                    this.hideScreen();                    
-                } else if (element.hasAttribute('data-color-option')){
+                    this.hideScreen();
+                } else if (element.hasAttribute('data-color-option')) {
                     const color = ev.target.getAttribute('color');
                     if (this.activeElement) {
-                        this.activeElement.setAttribute('color', color)
+                        this.activeElement.setAttribute('material', `color: ${color};`);
                     }
                 }
             })

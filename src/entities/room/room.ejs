@@ -1,0 +1,23 @@
+<a-entity id="room" position="0 0 0">
+    <a-plane id="floor" height="<%- roomSize.z -%>" width="<%- roomSize.x -%>" rotation="-90 0 0" position="0 0 0"
+        repeat="<%- roomSize.z / 2 -%> <%- roomSize.z / 2 -%>" src="#<%- ids.floorTexture -%>"></a-plane>
+    <a-plane id="ceiling" height="<%- roomSize.z -%>" width="<%- roomSize.x -%>" rotation="90 0 0" color="#FFF"
+        position="0 <%- roomSize.y -%> 0"></a-plane>
+    <a-plane height="<%- roomSize.y -%>" width="<%- roomSize.x -%>" rotation="0 180 0" color="#AAA"
+        position="0 <%- roomSize.y / 2 -%>  <%- roomSize.z / 2 -%> " dynamic-color data-raycastable></a-plane>
+    <a-plane height="<%- roomSize.y -%>" width="<%- roomSize.z -%>" rotation="0 90 0" color="#AAA"
+        position="<%- -roomSize.x / 2 -%>  <%- roomSize.y / 2 -%>  0" dynamic-color data-raycastable></a-plane>
+    <a-plane height="<%- roomSize.y -%>" width="<%- roomSize.z -%>" rotation="0 -90 0" color="#AAA"
+        position="<%- roomSize.x / 2 -%>  <%- roomSize.y / 2 -%>  0" dynamic-color data-raycastable></a-plane>
+    <a-entity obj-model="obj: #<%- ids.doorsObject -%>; mtl: #<%- ids.doorsMaterial -%>" position="0 0  <%- -4.953 -%> "
+        rotation="0 180 0" width="1" height="2" depth="0.16"></a-entity>
+    <a-entity obj-model="obj: #<%- ids.windowObject -%>; mtl: #<%- ids.windowMaterial -%>"
+        position="-2 1.8  <%- roomSize.z / 2 -%> " rotation="0 180 0"></a-entity>
+    <a-entity obj-model="obj: #<%- ids.windowObject -%>; mtl: #<%- ids.windowMaterial -%>"
+        position="2 1.8  <%- roomSize.z / 2 -%> " rotation="0 180 0"></a-entity>
+    <a-entity obj-model="obj: #<%- ids.lampObject -%>; mtl: #<%- ids.lampMaterial -%>"
+        position="-2 <%- roomSize.y -%>  0" rotation="0 180 0"></a-entity>
+    <a-entity obj-model="obj: #<%- ids.lampObject -%>; mtl: #<%- ids.lampMaterial -%>" position="2 1  0"
+        rotation="0 180 0"></a-entity>
+    <%- include back-wall %>
+</a-entity>

@@ -2,6 +2,7 @@ const path = require("path");
 const config = require('./src/config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInjector = require('html-webpack-injector');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 global.__webpack_base_uri__ = '';
 
@@ -20,13 +21,6 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i, 
-                loader: 'file-loader',
-                options: {
-                  name: '/public/icons/[name].[ext]'
-                }
             },
             {
                 test: /\.ejs$/,
@@ -50,6 +44,14 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'src/assets',
+                    to: 'assets'
+                }
+            ]
+        }),
         new HtmlWebpackPlugin({
             chunks: ["index_head"],
             scriptLoading: 'blocking'

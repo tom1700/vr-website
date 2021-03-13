@@ -27,6 +27,7 @@
   ],
   "dependencies": {
     "aframe": "^1.2.0",
+    "copy-webpack-plugin": "^8.0.0",
     "ejs": "^3.1.6",
     "ejs-webpack-loader": "^2.2.2",
     "extract-loader": "^5.1.0",
