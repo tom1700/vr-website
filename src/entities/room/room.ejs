@@ -15,9 +15,6 @@
         position="-2 1.8  <%- roomSize.z / 2 -%> " rotation="0 180 0"></a-entity>
     <a-entity obj-model="obj: #<%- ids.windowObject -%>; mtl: #<%- ids.windowMaterial -%>"
         position="2 1.8  <%- roomSize.z / 2 -%> " rotation="0 180 0"></a-entity>
-    <a-entity obj-model="obj: #<%- ids.lampObject -%>; mtl: #<%- ids.lampMaterial -%>"
-        position="-2 <%- roomSize.y -%>  0" rotation="0 180 0"></a-entity>
-    <a-entity obj-model="obj: #<%- ids.lampObject -%>; mtl: #<%- ids.lampMaterial -%>" position="2 1  0"
-        rotation="0 180 0"></a-entity>
-    <%- include back-wall %>
+    <%- include lamp %>
+        <%- include back-wall %>
 </a-entity>
